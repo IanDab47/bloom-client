@@ -1,3 +1,4 @@
+// Dependencies
 import {
   BrowserRouter as Router,
   Routes,
@@ -5,19 +6,22 @@ import {
   Navigate
 } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import jwt_decode from 'jwt-decode'
+
+// Partials
+import Navbar from './components/Navbar'
+
+// Pages
 import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 import Welcome from './components/pages/Welcome'
-import Navbar from './components/Navbar'
-import './App.css'
-import jwt_decode from 'jwt-decode'
 
-function App() {
-  // the currently logged in user will be stored up here in state
+export default function App() {
+  // States
   const [currentUser, setCurrentUser] = useState(null)
 
-  // useEffect -- if the user navigates away form the page, we will log them back in
+  // Hoooks
   useEffect(() => {
     // check to see if token is in storage
     const token = localStorage.getItem('jwt')
@@ -29,7 +33,7 @@ function App() {
     }
   }, []) // happen only once
 
-  // event handler to log the user out when needed
+  // Handlers
   const handleLogout = () => {
     // check to see if a token exists in local storage
     if (localStorage.getItem('jwt')) {
@@ -40,6 +44,7 @@ function App() {
     }
   }
 
+  // Output
   return (
     <Router>
       <header>
@@ -51,23 +56,23 @@ function App() {
 
       <div className="App">
         <Routes>
-          <Route 
+          <Route // Landing Page
             path="/"
             element={<Welcome />}
           />
 
-          <Route 
+          <Route // Register account
             path="/register"
             element={<Register currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
-          <Route 
+          <Route // Login 
             path="/login"
             element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           {/* conditionally render auth locked routes */}
-          <Route 
+          <Route // User profile display
             path="/profile"
             element={currentUser ? <Profile handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : <Navigate to="/login" />}
           />
@@ -75,7 +80,5 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
+  )
 }
-
-export default App;
