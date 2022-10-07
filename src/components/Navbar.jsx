@@ -8,9 +8,18 @@ export default function Navbar({ currentUser, handleLogout }) {
 				<span onClick={handleLogout}>logout</span>
 			</Link>
 
-			<Link to="/profile">
-				profile
+			<Link to="/profile/:userId">
+				Profile
 			</Link>
+            
+			<Link to='/courses/new'>
+				Create New Course
+			</Link>
+
+			<Link to='/users/:id/cart'>
+				View Cart
+			</Link>
+            
 		</>
 	 )
 
@@ -35,6 +44,15 @@ export default function Navbar({ currentUser, handleLogout }) {
 			</Link>
 
 			{currentUser ? loggedIn : loggedOut}
+
+			<li>
+                    <Link to='/'>Home</Link>
+            </li>
+
+			<li>
+                    <Link to='/courses'>Courses</Link>
+            </li>
+
 		</nav>
 	)
 }
