@@ -95,27 +95,27 @@ export default function App() {
 
           {/* conditionally render auth locked routes */}
           <Route // View Account Information
-            path="/user/:userId"
+            path="/users/:userId"
             element={currentUser ? <Profile handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : <Navigate to="/login" />}
           />
 
           <Route // Edit Account Information
-            path="/user/:userId/edit" 
+            path="/users/:userId/edit" 
             element={<EditProfile />}
           />
 
           <Route // Display all created courses
-            path="/user/:userId/my-courses" 
+            path="/users/:userId/my-courses" 
             element={<MyCourses />}
           />
 
           <Route // Display all purchased courses
-            path="/user/:userId/paid-courses" 
+            path="/users/:userId/paid-courses" 
             element={<PaidCourses />}
           />
 
           <Route // Show Cart Details
-            path="/user/:id/cart/" 
+            path="/users/:userId/cart/" 
             element={<Profile />}
           />
 
