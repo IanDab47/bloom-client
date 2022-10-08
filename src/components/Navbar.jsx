@@ -8,7 +8,7 @@ export default function Navbar({ currentUser, handleLogout }) {
 				<span onClick={handleLogout}>logout</span>
 			</Link>
 
-			<Link to="/users/:userId">
+			<Link to={`/users/${currentUser.id}`}>
 				Profile
 			</Link>
             
@@ -16,7 +16,7 @@ export default function Navbar({ currentUser, handleLogout }) {
 				Create New Course
 			</Link>
 
-			<Link to='/users/:id/cart'>
+			<Link to='/users/:userId/cart'>
 				View Cart
 			</Link>
             
