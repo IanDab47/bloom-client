@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CheckoutBtn from "../partials/CheckoutBtn";
 
 function Cart(props) {
     const [cartCourses, setCartCourses] = useState([]);
@@ -42,6 +43,12 @@ function Cart(props) {
         }
         getCartItems();
     }, []);
+    const handleCheckoutClick = async () => {
+        // put route below clears shoppingCart array on current user and adds courses to purchasedCourses array
+        const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${props.currentUser.id}/cart`);
+        // response from server should be an empty (shoppingCart) array
+        setCartCourses(response.data);
+    }
     const courseComponents = cartCourses.map(course => {
         return (
             <div key={course._id}>
@@ -54,6 +61,7 @@ function Cart(props) {
             cart
             {errorMessage}
             {courseComponents}
+            <CheckoutBtn handleCheckoutClick={handleCheckoutClick} />
         </div>
     );
 }
