@@ -55,14 +55,16 @@ export default function App() {
   // Output
   return (
     <Router>
-      <header>
+      {/* 75% width, center navbar */}
+      <header className="w-9/12 mx-auto">
         <Navbar 
           currentUser={currentUser}
           handleLogout={handleLogout}
         />
       </header>
 
-      <div className="App">
+      {/* top margin of 24 px away from navbar, 66.66% width, center div */}
+      <div className="mt-6 w-8/12 mx-auto">
         <Routes>
           <Route // Landing
             path="/"
