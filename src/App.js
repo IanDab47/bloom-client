@@ -23,6 +23,7 @@ import Login from './components/pages/Login'
 import NewCourse from './components/pages/NewCourse'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
+import Courses from './components/pages/Courses'
 
 export default function App() {
   // State
@@ -102,6 +103,11 @@ export default function App() {
           <Route // Edit Account Information
             path="/users/:userId/edit" 
             element={<EditProfile />}
+          />
+
+          <Route // Display all courses
+            path="/courses" 
+            element={<Courses />}
           />
 
           <Route // Display all created courses
