@@ -31,19 +31,22 @@ export default function Home(){
     
     const courseLinks = courses.map(course => {
         return (
-            <div key={course._id}>
+            <div key={course._id} className="border-2 px-4 py-3">
                 <Link to={`/courses/${course._id}`}>{course.title}</Link>
             </div>
         )
 })
 
     return(
-        <div>
-            <h1>Welcome to the Bloom App</h1>
+        <div className="w-8/12 mx-auto flex flex-col items-start">
+            <h1 className="self-center">Welcome to the Bloom App</h1>
 
-            <h1>INSERT SLIDER CAROUSEL SLIDER</h1>
+            <h1 className="self-center">INSERT SLIDER CAROUSEL SLIDER</h1>
 
-            {courseLinks}
+            <h3 className="font-medium">Featured</h3>
+            <div className="flex gap-8">
+                {courseLinks}
+            </div>
 
             <p>{errorMessage}</p>
         </div>

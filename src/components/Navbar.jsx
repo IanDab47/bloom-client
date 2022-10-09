@@ -3,60 +3,58 @@ import { Link } from 'react-router-dom'
 export default function Navbar({ currentUser, handleLogout }) {
 	const loggedIn = () => {
     return (
-      <>
+      <div className="flex gap-2">
         {/* if the user is logged in... */}
+        <Link to='/courses/new'>
+          Create New Course
+        </Link>{" | "}
+
+        <Link to='/users/:userId/cart'>
+          View Cart
+        </Link>{" | "}
+
+        <Link to={`/users/:userId`}>
+          Profile
+        </Link>{" | "}
+
         <Link to="/">
           <span onClick={handleLogout}>logout</span>
         </Link>
 
-        <Link to={`/users/:userId`}>
-          Profile
-        </Link>
-              
-        <Link to='/courses/new'>
-          Create New Course
-        </Link>
-
-        <Link to='/users/:userId/cart'>
-          View Cart
-        </Link>
-              
-      </>
+      </div>
     )
   }
 		
 
 	const loggedOut = () => {
     return (
-      <>
+      <div className="flex gap-2">
         {/* if the user is not logged in... */}
         <Link to="/register">
           register
-        </Link>
+        </Link>{" | "}
 
         <Link to="/login">
           login
         </Link>
-      </>
+      </div>
     )
   }
 
 	return (
-		<nav>
+		<nav className="flex justify-between">
 			{/* user always sees this section */}
-			<Link to="/">
-				<p>User App</p>
-			</Link>
+      <div className="flex gap-2">
+        <Link to="/">
+          <p>User App</p>
+        </Link>{" | "}
 
-			{currentUser ? loggedIn() : loggedOut()}
+        <Link to='/'>Home</Link>{" | "}
 
-			<li>
-                    <Link to='/'>Home</Link>
-            </li>
+        <Link to='/courses'>Courses</Link>
+      </div>
 
-			<li>
-                    <Link to='/courses'>Courses</Link>
-            </li>
+      {currentUser ? loggedIn() : loggedOut()}
 
 		</nav>
 	)
