@@ -1,5 +1,6 @@
 // Dependencies
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 // Partials
@@ -8,6 +9,7 @@ import PaidCourses from '../partials/PaidCourses'
 
 export default function Profile({ currentUser, handleLogout }) {
 	// States
+  const { userId } = useParams()
   const [msg, setMsg] = useState('')
   const [myCourses, setMyCourses] = useState([])
   const [paidCourses, setPaidCourses] = useState([])
@@ -34,14 +36,14 @@ export default function Profile({ currentUser, handleLogout }) {
 					}
           
 					// hit the auth locked endpoint
-					// const authResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, options)
+					const authResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, options)
 
-          const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${currentUser.id}`)
+          const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${userId}`)
 					// example POST with auth headers (options are always last argument)
 					// await axios.post(url, requestBody (form data), options)
 					// set the secret user message in state
 
-					// setMsg(authResponse.data.msg)
+					setMsg(authResponse.data.msg)
           
           setUserDetails(userResponse.data)
           
@@ -93,8 +95,8 @@ export default function Profile({ currentUser, handleLogout }) {
 			<h3>{msg}</h3>
 
       <section className='profile'>
-        <h1>Hello, {currentUser.name}</h1>
-        <p>your email is {currentUser.email}</p>
+        <h1>Hello, {userDetails.name}</h1>
+        <p>your email is {userDetails.email}</p>
       </section>
 
       <MyCourses 
