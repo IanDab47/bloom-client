@@ -2,19 +2,19 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-
 export default function Home(){
     // courses from the backend
     const [courses, setCourses] = useState([])
     // state for messages from backend
     const [errorMessage, setErrorMessage] = useState('')
 
-    console.log('server url', process.env.REACT_APP_SERVER_URL)
-
     useEffect(() => {
         const getCourses = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/course`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`)
+
+                console.log(response)
+
                 setCourses(response.data)  
             } catch(err) {
                 console.warn(err)
@@ -26,11 +26,13 @@ export default function Home(){
         
         getCourses()
     }, [])  // only fire on page load
+
+    console.log(courses)
     
     const courseLinks = courses.map(course => {
         return (
             <div key={course._id}>
-                <Link to={`/courses/${course._id}`}>{course.name}</Link>
+                <Link to={`/courses/${course._id}`}>{course.title}</Link>
             </div>
         )
 })
