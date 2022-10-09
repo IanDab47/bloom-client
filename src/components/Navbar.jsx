@@ -9,11 +9,11 @@ export default function Navbar({ currentUser, handleLogout }) {
           Create New Course
         </Link>{" | "}
 
-        <Link to='/users/:userId/cart'>
+        <Link to={`/users/${currentUser.id}/cart`}>
           View Cart
         </Link>{" | "}
 
-        <Link to={`/users/:userId`}>
+        <Link to={`/users/${currentUser.id}/`}>
           Profile
         </Link>{" | "}
 
