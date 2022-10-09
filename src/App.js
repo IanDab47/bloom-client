@@ -24,6 +24,7 @@ import NewCourse from './components/pages/NewCourse'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 import Courses from './components/pages/Courses'
+import Cart from './components/pages/Cart'
 
 export default function App() {
   // State
@@ -124,7 +125,7 @@ export default function App() {
 
           <Route // Show Cart Details
             path="/users/:userId/cart/" 
-            element={<Profile />}
+            element={currentUser ? <Cart handleLogout={handleLogout} currentUser={currentUser} /> : <Navigate to="/login" />}
           />
 
         </Routes>
