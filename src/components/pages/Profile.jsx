@@ -1,11 +1,16 @@
 // Dependencies
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { dblClick } from '@testing-library/user-event/dist/click'
+
+// Partials
+import MyCourses from '../partials/MyCourses'
+import PaidCourses from '../partials/PaidCourses'
 
 export default function Profile({ currentUser, handleLogout }) {
 	// States
   const [msg, setMsg] = useState('')
+  const [myCourses, setMyCourses] = useState([])
+  const [paidCourses, setPaidCourses] = useState([])
   const [userDetails, setUserDetails] = useState({
     name: currentUser.name,
     email: currentUser.email,
@@ -14,8 +19,6 @@ export default function Profile({ currentUser, handleLogout }) {
     purchasedCourses: [],
     shoppingCart: []
   })
-  const [myCourses, setMyCourses] = useState([])
-  const [paidCourses, setPaidCourses] = useState([])
     
 	// Hooks
 	useEffect(() => {
@@ -84,23 +87,6 @@ export default function Profile({ currentUser, handleLogout }) {
 
   // Maps
 
-  // iterates through courses
-  const myCoursesList = myCourses.map(course => { 
-    return (
-      <div key={`myCourse_${course._id}_user_${currentUser.id}`} className='course-block'>
-        <h3>{course.title}</h3>
-      </div>
-    )
-  })
-  
-  const paidCoursesList = paidCourses.map(course => {
-    return (
-      <div key={`paidCourse_${course._id}_user_${currentUser.id}`} className='course-block'>
-        <h3>{course.title}</h3>
-      </div>
-    )
-  })
-
   // Output
 	return (
 		<div>
@@ -111,15 +97,15 @@ export default function Profile({ currentUser, handleLogout }) {
         <p>your email is {currentUser.email}</p>
       </section>
 
-      <div className='course-list'>
-        <h2>Here's a list of my courses</h2>
-        {myCoursesList}
-      </div>
+      <MyCourses 
+        myCourses={myCourses}
+        currentUser={currentUser}
+      />
 
-      <div className='course-list'>
-        <h2>Here is the secret message that is only availible to users of User App:</h2>
-        {paidCoursesList}
-      </div>
+      <PaidCourses 
+        paidCourses={paidCourses}
+        currentUser={currentUser}
+      />
 
 		</div>
 	)
