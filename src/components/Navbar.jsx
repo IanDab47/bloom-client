@@ -1,40 +1,45 @@
 import { Link } from 'react-router-dom'
 
 export default function Navbar({ currentUser, handleLogout }) {
-	 const loggedIn = (
-		<>
-			{/* if the user is logged in... */}
-			<Link to="/">
-				<span onClick={handleLogout}>logout</span>
-			</Link>
+	const loggedIn = () => {
+    return (
+      <>
+        {/* if the user is logged in... */}
+        <Link to="/">
+          <span onClick={handleLogout}>logout</span>
+        </Link>
 
-			<Link to={`/users/${currentUser.id}`}>
-				Profile
-			</Link>
-            
-			<Link to='/courses/new'>
-				Create New Course
-			</Link>
+        <Link to={`/users/:userId`}>
+          Profile
+        </Link>
+              
+        <Link to='/courses/new'>
+          Create New Course
+        </Link>
 
-			<Link to='/users/:userId/cart'>
-				View Cart
-			</Link>
-            
-		</>
-	 )
+        <Link to='/users/:userId/cart'>
+          View Cart
+        </Link>
+              
+      </>
+    )
+  }
+		
 
-	 const loggedOut = (
-		<>
-			{/* if the user is not logged in... */}
-			<Link to="/register">
-				register
-			</Link>
+	const loggedOut = () => {
+    return (
+      <>
+        {/* if the user is not logged in... */}
+        <Link to="/register">
+          register
+        </Link>
 
-			<Link to="/login">
-				login
-			</Link>
-		</>
-	 )
+        <Link to="/login">
+          login
+        </Link>
+      </>
+    )
+  }
 
 	return (
 		<nav>
@@ -43,7 +48,7 @@ export default function Navbar({ currentUser, handleLogout }) {
 				<p>User App</p>
 			</Link>
 
-			{currentUser ? loggedIn : loggedOut}
+			{currentUser ? loggedIn() : loggedOut()}
 
 			<li>
                     <Link to='/'>Home</Link>
