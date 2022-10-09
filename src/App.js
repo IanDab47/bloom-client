@@ -105,7 +105,7 @@ export default function App() {
 
           <Route // Edit Account Information
             path="/users/:userId/edit" 
-            element={<EditProfile />}
+            element={<EditProfile currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route // Display all courses
