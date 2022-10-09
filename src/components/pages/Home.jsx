@@ -38,7 +38,7 @@ export default function Home(){
 })
 
     return(
-        <div className="w-8/12 mx-auto flex flex-col items-start">
+        <div className="flex flex-col items-start">
             <h1 className="self-center">Welcome to the Bloom App</h1>
 
             <h1 className="self-center">INSERT SLIDER CAROUSEL SLIDER</h1>
