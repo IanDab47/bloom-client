@@ -57,7 +57,7 @@ function Cart(props) {
         );
     });
     return (
-        <div>
+        <div className="flex flex-col">
             cart
             {errorMessage}
             {courseComponents}
