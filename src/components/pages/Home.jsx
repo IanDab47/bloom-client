@@ -43,7 +43,7 @@ export default function Home(){
 
             <h1 className="self-center">INSERT SLIDER CAROUSEL SLIDER</h1>
 
-            <div id="carouselExampleCaptions" className="carousel slide relative" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" className="carousel slide relative w-full" data-bs-ride="carousel">
                     <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                         <button
                         type="button"
@@ -65,13 +65,25 @@ export default function Home(){
                         data-bs-slide-to="2"
                         aria-label="Slide 3"
                         ></button>
+                        <button
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="3"
+                        aria-label="Slide 4"
+                        ></button>
+                        <button
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="4"
+                        aria-label="Slide 5"
+                        ></button>
                     </div>
 
                     <div className="carousel-inner relative w-full overflow-hidden">
                         <div className="carousel-item active relative float-left w-full">
                             <img
-                                src="https://i.imgur.com/NQIawr3.png"
-                                className="block w-full"
+                                src="https://i.imgur.com/Nd7b6v8.png"
+                                className="block w-full h-96 object-cover align-middle"
                                 alt="..."
                             />
                             <div className="carousel-caption hidden md:block absolute text-center">
@@ -82,8 +94,8 @@ export default function Home(){
 
                         <div className="carousel-item relative float-left w-full">
                             <img
-                                src="https://i.imgur.com/316ctgo.png"
-                                className="block w-full"
+                                src="https://i.imgur.com/PGdtGHh.png"
+                                className="block w-full h-96 object-cover align-middle"
                                 alt="..."
                             />
                             <div className="carousel-caption hidden md:block absolute text-center">
@@ -94,13 +106,37 @@ export default function Home(){
 
                         <div className="carousel-item relative float-left w-full">
                             <img
-                                src="https://i.imgur.com/Dh2KLmy.png"
-                                className="block w-full"
+                                src="https://i.imgur.com/ICK45WM.png"
+                                className="block w-full h-96 object-cover align-middle"
                                 alt="..."
                             />
                             <div className="carousel-caption hidden md:block absolute text-center">
                                 <h5 className="text-xl">Learn how to be an AirBNB Host</h5>
                                 <p>Lead with passion and authenticity, then then business aspect will follow.</p>
+                            </div>
+                        </div>
+
+                        <div className="carousel-item relative float-left w-full">
+                            <img
+                                src="https://i.imgur.com/TrKJPFd.png"
+                                className="block w-full h-96 object-cover align-middle"
+                                alt="..."
+                            />
+                            <div className="carousel-caption hidden md:block absolute text-center">
+                                <h5 className="text-xl">Scuba Diving Intro</h5>
+                                <p>Learn what it takes to get certified as a diver</p>
+                            </div>
+                        </div>
+
+                        <div className="carousel-item relative float-left w-full">
+                            <img
+                                src="https://i.imgur.com/Qnp6Y0v.png"
+                                className="block w-full h-96 object-cover align-middle"
+                                alt="..."
+                            />
+                            <div className="carousel-caption hidden md:block absolute text-center">
+                                <h5 className="text-xl">Learn to Become a Hair Stylist</h5>
+                                <p>Learn the basics of the Hair Styling Business.</p>
                             </div>
                         </div>
                     </div>
