@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
-import { Link, useParams, Navigate } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 export default function EditProfile({ currentUser, handleLogout }) {
   // State
+  const navigate = useNavigate()
   const { userId } = useParams()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -39,9 +40,8 @@ export default function EditProfile({ currentUser, handleLogout }) {
   const editUserDetails = async (e) => {
     try {
       e.preventDefault()
-  
       await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${userId}`, {name, email})
-      
+      navigate(`/users/${userId}`)
     } catch (err) {
       console.warn(err)
     }
