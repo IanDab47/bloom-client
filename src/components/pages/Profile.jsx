@@ -48,7 +48,7 @@ export default function Profile({ currentUser, handleLogout }) {
           setUserDetails(userResponse.data)
           
           await getMyCourses(userResponse.data.myCourses)
-          await getPaidCourses(userResponse.data.paidCourses)
+          await getPaidCourses(userResponse.data.purchasedCourses)
 
 				} catch (err) {
 					// if the error is a 401 -- that means that auth failed
