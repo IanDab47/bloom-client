@@ -52,7 +52,7 @@ export default function App() {
       setCurrentUser(null)
     }
   }
-
+  
   // Output
   return (
     <Router>
@@ -84,7 +84,7 @@ export default function App() {
 
           <Route // Display Course Details
             path="/courses/:courseId" 
-            element={<Course />}
+            element={<Course currentUser={currentUser}  />}
           />
 
           <Route // Edit Course
