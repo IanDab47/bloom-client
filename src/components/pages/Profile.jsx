@@ -1,6 +1,6 @@
 // Dependencies
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 // Partials
@@ -92,7 +92,7 @@ export default function Profile({ currentUser, handleLogout }) {
   // Output
 	return (
 		<div>
-			<h3>{msg}</h3>
+			{msg ? <Link className='float-right underline' to={`edit`}>edit profile</Link> : <h3>{msg}</h3>}
 
       <section className='profile'>
         <h1>Hello, {userDetails.name}</h1>
