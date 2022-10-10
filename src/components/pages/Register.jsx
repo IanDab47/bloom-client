@@ -47,43 +47,9 @@ export default function Register({ currentUser, setCurrentUser }) {
 
 	return (
 		<div>
-			<h1>Register for an account:</h1>
-
 			<p>{msg}</p>
-
-			{/* <form onSubmit={handleSubmit}>
-				<label htmlFor='name'>Name:</label>
-				<input 
-					type="text"
-					id="name"
-					placeholder='your username...'
-					onChange={e => setName(e.target.value)}
-					value={name}
-				/>
-
-				<label htmlFor='email'>Email:</label>
-				<input 
-					type="email"
-					id="email"
-					placeholder='your email...'
-					onChange={e => setEmail(e.target.value)}
-					value={email}
-				/>
-
-				<label htmlFor='password'>Password:</label>
-				<input 
-					type="password"
-					id="password"
-					placeholder='password...'
-					onChange={e => setPassword(e.target.value)}
-					value={password}
-				/>
-
-				<button type="submit">Register</button>
-			</form> */}
-
-			
-			<section class="bg-gray-50 dark:bg-gray-900">
+						
+			<section class="bg-gray-80 dark:bg-gray-900">
 				<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
 					<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
