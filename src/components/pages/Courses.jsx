@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import CourseCard from "../partials/CourseCard";
+import CourseList from "../partials/CourseList";
 
 export default function Courses(){
     // courses from the backend
@@ -23,17 +23,11 @@ export default function Courses(){
         
         getCourses()
     }, [])  // only fire on page load
-    
-    const courseCardComponents = courses.map(course => {
-        return <CourseCard course={course} key={course._id} />
-    });
 
     return(
         <div>
             <h1 className="text-3xl">All Courses</h1>
-            <div className="mt-3 flex gap-8">
-                {courseCardComponents}
-            </div>
+            <CourseList courses={courses} />
 
             <p>{errorMessage}</p>
         </div>
