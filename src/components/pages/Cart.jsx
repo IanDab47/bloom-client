@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import CartList from "../partials/CartList";
 import CheckoutBtn from "../partials/CheckoutBtn";
 
 function Cart(props) {
@@ -43,24 +43,29 @@ function Cart(props) {
         }
         getCartItems();
     }, []);
+    const handleRemoveClick = async (courseId) => {
+        try {
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${props.currentUser.id}/cart/${courseId}/remove`);
+            setCartCourses(response.data);
+        }
+        catch(error) {
+            console.warn(error);
+            if (error.response) {
+                setErrorMessage(error.response.data.message); 
+            }
+        }
+    }
     const handleCheckoutClick = async () => {
         // put route below clears shoppingCart array on current user and adds courses to purchasedCourses array
         const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${props.currentUser.id}/cart`);
         // response from server should be an empty (shoppingCart) array
         setCartCourses(response.data);
     }
-    const courseComponents = cartCourses.map(course => {
-        return (
-            <div key={course._id}>
-                <Link to={`/courses/${course._id}`}>{course.title}</Link>
-            </div>
-        );
-    });
     return (
         <div className="flex flex-col">
             cart
             {errorMessage}
-            {courseComponents}
+            <CartList cartCourses={cartCourses} handleRemoveClick={handleRemoveClick} />
             <CheckoutBtn handleCheckoutClick={handleCheckoutClick} />
         </div>
     );
