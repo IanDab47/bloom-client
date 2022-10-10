@@ -101,12 +101,10 @@ export default function Profile({ currentUser, handleLogout }) {
 
       <MyCourses 
         myCourses={myCourses}
-        currentUser={currentUser}
       />
 
       <PaidCourses 
         paidCourses={paidCourses}
-        currentUser={currentUser}
       />
 
 		</div>

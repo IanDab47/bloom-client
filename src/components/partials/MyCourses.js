@@ -1,16 +1,14 @@
-export default function MyCourse({ currentUser, myCourses }) {
-  const myCoursesList = myCourses.map(course => { 
-    return (
-      <div key={`myCourse_${course._id}_user_${currentUser.id}`} className='course-block'>
-        <h3>{course.title}</h3>
-      </div>
-    )
-  })
+import CourseList from "./CourseList";
 
+export default function MyCourse({myCourses}) {
   return (
-    <div className='course-list'>
+    <div>
       <h2>Here's a list of my courses:</h2>
-      {myCoursesList}
+      {myCourses.length > 0 ?
+        <CourseList courses={myCourses} />
+        :
+        <p>You have not created any courses</p>
+      }
     </div>
   )
 }
