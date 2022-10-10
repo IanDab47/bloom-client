@@ -79,7 +79,7 @@ export default function App() {
 
           <Route // Create New Course
             path="/courses/new" 
-            element={<NewCourse />}
+            element={<NewCourse currentUser={currentUser} />}
           />
 
           <Route // Display Course Details
