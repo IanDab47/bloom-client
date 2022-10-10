@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import CourseList from "../partials/CourseList";
 
 export default function Courses(){
     // courses from the backend
@@ -12,9 +12,6 @@ export default function Courses(){
         const getCourses = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`)
-
-                console.log(response)
-
                 setCourses(response.data)  
             } catch(err) {
                 console.warn(err)
@@ -27,23 +24,10 @@ export default function Courses(){
         getCourses()
     }, [])  // only fire on page load
 
-    console.log(courses)
-    
-    const courseLinks = courses.map(course => {
-        return (
-            <div key={course._id}>
-                <Link to={`/courses/${course._id}`}>{course.title}</Link>
-            </div>
-        )
-})
-
     return(
         <div>
-            <h1>Welcome to the Bloom App</h1>
-
-            <h1>INSERT SLIDER CAROUSEL SLIDER</h1>
-
-            {courseLinks}
+            <h1 className="text-3xl">All Courses</h1>
+            <CourseList courses={courses} />
 
             <p>{errorMessage}</p>
         </div>

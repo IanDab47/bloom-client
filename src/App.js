@@ -1,11 +1,11 @@
 // Dependencies
+import { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate
 } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import './App.css'
 import jwt_decode from 'jwt-decode'
 
@@ -24,6 +24,7 @@ import NewCourse from './components/pages/NewCourse'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 import Courses from './components/pages/Courses'
+import Cart from './components/pages/Cart'
 
 export default function App() {
   // State
@@ -71,14 +72,19 @@ export default function App() {
             element={<Home />}
           />
 
-          <Route // Display Course Details
-            path="/courses/:courseId" 
-            element={<Course />}
+          <Route // Display all courses
+            path="/courses" 
+            element={<Courses />}
           />
 
           <Route // Create New Course
-            path="/courses/:courseId/new" 
-            element={<NewCourse />}
+            path="/courses/new" 
+            element={<NewCourse currentUser={currentUser} />}
+          />
+
+          <Route // Display Course Details
+            path="/courses/:courseId" 
+            element={<Course />}
           />
 
           <Route // Edit Course
@@ -96,7 +102,6 @@ export default function App() {
             element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
-          {/* conditionally render auth locked routes */}
           <Route // View Account Information
             path="/users/:userId"
             element={currentUser ? <Profile handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : <Navigate to="/login" />}
@@ -104,12 +109,7 @@ export default function App() {
 
           <Route // Edit Account Information
             path="/users/:userId/edit" 
-            element={<EditProfile />}
-          />
-
-          <Route // Display all courses
-            path="/courses" 
-            element={<Courses />}
+            element={<EditProfile currentUser={currentUser} handleLogout={handleLogout} />}
           />
 
           <Route // Display all created courses
@@ -124,7 +124,7 @@ export default function App() {
 
           <Route // Show Cart Details
             path="/users/:userId/cart/" 
-            element={<Profile />}
+            element={currentUser ? <Cart handleLogout={handleLogout} currentUser={currentUser} /> : <Navigate to="/login" />}
           />
 
         </Routes>
