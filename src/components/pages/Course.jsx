@@ -71,8 +71,11 @@ export default function Course(props){
     const handleSubmit = async e => {
         try {
             e.preventDefault()
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}/comments`, form)
-            navigate('/courses')
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}/comments`, form);
+            // clear comment input element
+            setForm({content: "", commenter: props.currentUser.id});
+            // update course with new comment included
+            setCourse(response.data);
         } catch(err) {
             console.warn(err)
             if (err.response) {
@@ -124,6 +127,7 @@ export default function Course(props){
                     type="text"
                     id='content'
                     placeholder='Comment here'
+                    value={form.content}
                     onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} />
             </div>
             <button type='submit'>Comment</button>
