@@ -15,6 +15,7 @@ import MyCourses from './components/partials/MyCourses'
 import PaidCourses from './components/partials/PaidCourses'
 
 // Pages
+// import About from './components/pages/About'
 import Course from './components/pages/Course'
 import EditCourse from './components/pages/EditCourse'
 import EditProfile from './components/pages/EditProfile'
@@ -57,7 +58,7 @@ export default function App() {
   return (
     <Router>
       {/* 75% width, center navbar */}
-      <header className="w-9/12 mx-auto">
+      <header className="relative flex justify-center w-screen bg-bloom-gray mx-auto mt-[-.75rem] z-[1]">
         <Navbar 
           currentUser={currentUser}
           handleLogout={handleLogout}
@@ -65,12 +66,17 @@ export default function App() {
       </header>
 
       {/* top margin of 24 px away from navbar, 66.66% width, center div */}
-      <div className="mt-6 w-8/12 mx-auto">
+      <div className="relative w-screen bg-stone-100 mx-auto">
         <Routes>
           <Route // Landing
             path="/"
             element={<Home />}
           />
+
+          {/* <Route // About
+            path="/about"
+            element={<About />}
+          /> */}
 
           <Route // Display all courses
             path="/courses" 

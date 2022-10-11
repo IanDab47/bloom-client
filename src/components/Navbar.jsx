@@ -42,7 +42,7 @@ export default function Navbar({ currentUser, handleLogout }) {
   }
 
 	return (
-		<nav className="relative top-0 flex justify-between items-end w-screen h-20 max-w-screen-2xl bg-bloom-gray font-bloom-sans text-lg text-stone-50 px-8 py-2">
+		<nav className="relative top-0 flex justify-between items-end w-screen h-20 max-w-[90%] bg-bloom-gray font-bloom-sans text-lg text-stone-50 px-8 py-2">
 			{/* user always sees this section */}
       <div className="flex items-end gap-2">
         <Link to="/">
