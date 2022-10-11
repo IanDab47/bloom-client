@@ -60,8 +60,8 @@ export default function NewCourse(props){
                         value={form.price}
                         placeholder='Price of course'
                         onChange={e => setForm({ ...form, price: e.target.value })}
-                        class= "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
-                        
+                        class= " border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        required
                     />
         </div>
         <div>
@@ -72,7 +72,8 @@ export default function NewCourse(props){
                         value={form.photoLink}
                         placeholder='Enter picture link address here'
                         onChange={e => setForm({ ...form, photoLink: e.target.value })}
-                        class= "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        class= " border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        required
                     />
                 </div>
                 <div>
@@ -83,7 +84,8 @@ export default function NewCourse(props){
                         value={form.description}
                         placeholder='Describe your course here'
                         onChange={e => setForm({ ...form, description: e.target.value })}
-                        class= "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        class= " border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        required
                     />
                 </div>
         <button type="submit" class=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#373e3d] w-full ">Make Course</button>
