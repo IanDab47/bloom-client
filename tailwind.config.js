@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'bloom-sans': ['Lato', 'sans-serif']
+      },
       colors: {
         'bloom-gray': '#373e3d',
         'bloom-sage': '#b9c1a6',
