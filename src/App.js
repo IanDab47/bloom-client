@@ -57,7 +57,7 @@ export default function App() {
   return (
     <Router>
       {/* 75% width, center navbar */}
-      <header className="w-9/12 mx-auto">
+      <header className="flex justify-center w-screen bg-bloom-gray mx-auto mt-[-.75rem]">
         <Navbar 
           currentUser={currentUser}
           handleLogout={handleLogout}
@@ -65,7 +65,7 @@ export default function App() {
       </header>
 
       {/* top margin of 24 px away from navbar, 66.66% width, center div */}
-      <div className="mt-6 w-8/12 mx-auto">
+      <div className="mx-auto">
         <Routes>
           <Route // Landing
             path="/"
