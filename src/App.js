@@ -15,7 +15,7 @@ import MyCourses from './components/partials/MyCourses'
 import PaidCourses from './components/partials/PaidCourses'
 
 // Pages
-// import About from './components/pages/About'
+import About from './components/pages/About'
 import Course from './components/pages/Course'
 import EditCourse from './components/pages/EditCourse'
 import EditProfile from './components/pages/EditProfile'
@@ -73,10 +73,10 @@ export default function App() {
             element={<Home />}
           />
 
-          {/* <Route // About
+          <Route // About
             path="/about"
             element={<About />}
-          /> */}
+          />
 
           <Route // Display all courses
             path="/courses" 
