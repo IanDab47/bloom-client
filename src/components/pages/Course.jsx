@@ -7,7 +7,7 @@ export default function Course(props){
 
     const [form, setForm] = useState({
         content: '',
-        commenter: props.currentUser.id
+        commenter: ''
     })
     const [course, setCourse] = useState({comments:[],
                                             title:'',
@@ -21,7 +21,6 @@ export default function Course(props){
 
     const { courseId } = useParams()
     const navigate = useNavigate()
-    console.log(course.comments)
     
 
 
@@ -30,7 +29,6 @@ export default function Course(props){
             try {
                 //axios to the back end to get course
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}`)
-                console.log(response.data)
                 setCourse(response.data)
             } catch (err) {
                 console.warn(err)
@@ -41,7 +39,6 @@ export default function Course(props){
         }
         
         getCourse() 
-        console.log(course)
     }, [])
     
     const handleDelete = async () => {
@@ -74,8 +71,11 @@ export default function Course(props){
     const handleSubmit = async e => {
         try {
             e.preventDefault()
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}/comments`, form)
-            navigate('/courses')
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}/comments`, form);
+            // clear comment input element
+            setForm({content: "", commenter: props.currentUser.id});
+            // update course with new comment included
+            setCourse(response.data);
         } catch(err) {
             console.warn(err)
             if (err.response) {
@@ -112,7 +112,7 @@ export default function Course(props){
                 <p><img src={course.photoLink} alt={course.title} width="200"
                 height="80"/></p>
 
-                <p><strong>Price:</strong> {course.price}</p>
+                <p><strong>Price:</strong> ${course.price}</p>
 
                 <p><strong>Description:</strong> {course.description}</p>
 
@@ -127,7 +127,8 @@ export default function Course(props){
                     type="text"
                     id='content'
                     placeholder='Comment here'
-                    onChange={e => setForm({...form, content: e.target.value})} />
+                    value={form.content}
+                    onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} />
             </div>
             <button type='submit'>Comment</button>
          </form>
