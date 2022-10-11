@@ -1,7 +1,7 @@
 function Carousel() {
     return (
-        <div id="carouselExampleCaptions" className="carousel slide relative w-full" data-bs-ride="carousel">
-            <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+        <div id="carouselExampleCaptions" className="carousel slide relative w-full float-right drop-shadow-lg" data-bs-ride="carousel">
+            <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-2">
                 <button
                 type="button"
                 data-bs-target="#carouselExampleCaptions"
@@ -40,11 +40,12 @@ function Carousel() {
                 <div className="carousel-item active relative float-left w-full">
                     <img
                         src="https://i.imgur.com/Nd7b6v8.png"
-                        className="block w-full h-96 object-cover align-middle"
+                        // className="block w-full h-96 object-cover align-middle"
+                        className="aspect-video block w-full object-cover align-middle"
                         alt="..."
                     />
-                    <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Decorated Events</h5>
+                    <div className="carousel-caption font-bloom-sans font-light text-xl w-full hidden md:block absolute text-center left-0 bottom-0 bg-gradient-to-t from-neutral-800/[.7] pt-8 pb-8">
+                        <h5 className="font-normal text-2xl">Decorated Events</h5>
                         <p>Learn how to spark joy with Curated Experiences</p>
                     </div>
                 </div>
@@ -52,11 +53,12 @@ function Carousel() {
                 <div className="carousel-item relative float-left w-full">
                     <img
                         src="https://i.imgur.com/PGdtGHh.png"
-                        className="block w-full h-96 object-cover align-middle"
+                        // className="block w-full h-96 object-cover align-middle"
+                        className="aspect-video block w-full object-cover align-middle"
                         alt="..."
                     />
-                    <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Learn how to Start a Clothing Brand</h5>
+                    <div className="carousel-caption font-bloom-sans font-light text-xl w-full hidden md:block absolute text-center left-0 bottom-0 bg-gradient-to-t from-neutral-800/[.7] pt-8 pb-8">
+                        <h5 className="font-normal text-2xl">Learn how to Start a Clothing Brand</h5>
                         <p>10 years of Streetwear Brand Experience</p>
                     </div>
                 </div>
@@ -64,11 +66,12 @@ function Carousel() {
                 <div className="carousel-item relative float-left w-full">
                     <img
                         src="https://i.imgur.com/ICK45WM.png"
-                        className="block w-full h-96 object-cover align-middle"
+                        // className="block w-full h-96 object-cover align-middle"
+                        className="aspect-video block w-full object-cover align-middle"
                         alt="..."
                     />
-                    <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Learn how to be an AirBNB Host</h5>
+                    <div className="carousel-caption font-bloom-sans font-light text-xl w-full hidden md:block absolute text-center left-0 bottom-0 bg-gradient-to-t from-neutral-800/[.7] pt-8 pb-8">
+                        <h5 className="font-normal text-2xl">Learn how to be an AirBNB Host</h5>
                         <p>Lead with passion and authenticity, then then business aspect will follow.</p>
                     </div>
                 </div>
@@ -76,11 +79,12 @@ function Carousel() {
                 <div className="carousel-item relative float-left w-full">
                     <img
                         src="https://i.imgur.com/TrKJPFd.png"
-                        className="block w-full h-96 object-cover align-middle"
+                        // className="block w-full h-96 object-cover align-middle"
+                        className="aspect-video block w-full object-cover align-middle"
                         alt="..."
                     />
-                    <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Scuba Diving Intro</h5>
+                    <div className="carousel-caption font-bloom-sans font-light text-xl w-full hidden md:block absolute text-center left-0 bottom-0 bg-gradient-to-t from-neutral-800/[.7] pt-8 pb-8">
+                        <h5 className="font-normal text-2xl">Scuba Diving Intro</h5>
                         <p>Learn what it takes to get certified as a diver</p>
                     </div>
                 </div>
@@ -88,11 +92,12 @@ function Carousel() {
                 <div className="carousel-item relative float-left w-full">
                     <img
                         src="https://i.imgur.com/Qnp6Y0v.png"
-                        className="block w-full h-96 object-cover align-middle"
+                        // className="block w-full h-96 object-cover align-middle"
+                        className="aspect-video block w-full object-cover align-middle"
                         alt="..."
                     />
-                    <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Learn to Become a Hair Stylist</h5>
+                    <div className="carousel-caption font-bloom-sans font-light text-xl w-full hidden md:block absolute text-center left-0 bottom-0 bg-gradient-to-t from-neutral-800/[.7] pt-8 pb-8">
+                        <h5 className="font-normal text-2xl">Learn to Become a Hair Stylist</h5>
                         <p>Learn the basics of the Hair Styling Business.</p>
                     </div>
                 </div>
