@@ -10,8 +10,8 @@ export default function CommentList({comments}) {
         );
     });
     return (
-        <div>
-            <h3><strong>Comments:</strong></h3>
+        <div className="mt-8">
+            <h3 className="font-bold">({comments.length}) Comments:</h3>
             {commentComponents}
         </div>
     );
