@@ -1,9 +1,8 @@
 // Dependencies
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import btn from "../../bloomStyles"
-
 
 // Partials
 import MyCourses from '../partials/MyCourses'
@@ -11,6 +10,7 @@ import PaidCourses from '../partials/PaidCourses'
 
 export default function Profile({ currentUser, handleLogout }) {
 	// States
+  const navigate = useNavigate()
   const { userId } = useParams()
   const [msg, setMsg] = useState('')
   const [myCourses, setMyCourses] = useState([])
@@ -89,14 +89,35 @@ export default function Profile({ currentUser, handleLogout }) {
     setPaidCourses(courseArr)
   }
 
-  // Maps
+  const deleteUser = async () => {
+    try {
+      // Deletes User
+      await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${userId}`)
+      // Logout user from deleted account
+      handleLogout()
+      // Return Home
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const userOptions = () => {
+    return (
+      <div className='flex flex-col text-3xl'>
+        <Link className={`font-medium`} to={`edit`}>Edit Profile</Link>
+
+        <Link className='' to='/' onClick={deleteUser}>Delete Profile</Link>
+      </div>
+    )
+  }
 
   // Output
 	return (
 
-		<div className='container mx-auto mt-1' >
+		<div className='mx-auto mt-1' >
       <div>
-        {msg ? <Link className={`float-right ${btn} font-medium`} to={`edit`}>edit profile</Link> : <h3>{msg}</h3>}
+        {!currentUser ? <h3>ha ha, bye bye!</h3> : userOptions() }
 
         <section className='profile'>
           <h1 className='text-3xl'>Hello, {userDetails.name}</h1>
