@@ -84,48 +84,43 @@ export default function Course(props){
     }
 
     return(
-        <div>
-            <h1>Course Details</h1>
+        <div class="flex justify-center mt-10 max-w-full" >
+            <div class=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
+                <h5 class="text-gray-900 text-2xl leading-tight font-medium mb-2">Course Details</h5>    
+                    <p>{errorMessage}</p>
 
-            <p>{errorMessage}</p>
+                    <CourseActionButtons 
+                        currentUser={props.currentUser}
+                        course={course} 
+                        handleDelete={handleDelete} 
+                        addToCart={addToCart} 
+                    />
 
-            <CourseActionButtons 
-                currentUser={props.currentUser}
-                course={course} 
-                handleDelete={handleDelete} 
-                addToCart={addToCart} 
-            />
-
-            <div>
-                <h2><strong>Title:</strong> {course.title}</h2>
-
-                <img src={course.photoLink} alt={course.title} width="200" height="80" />
-
-                <p><strong>Price:</strong> ${course.price}</p>
-
-                <p><strong>Description:</strong> {course.description}</p>
-
+                    <div>
+                        <h2><strong>Title:</strong> {course.title}</h2>
+                        <img src={course.photoLink} alt={course.title} width="600"/>
+                        <p><strong>Price:</strong> ${course.price}</p>
+                        <p><strong>Description:</strong> {course.description}</p>
                 
-                
-                <CommentList comments={course.comments} />
-                           
-                <form onSubmit={handleSubmit} className="mt-4">
-                    <div className="flex flex-col">
-                        <label htmlFor='content'>comment:</label>
-                        <textarea 
-                            id='content'
-                            rows="3"
-                            placeholder="What are your thoughts?"
-                            value={form.content}
-                            onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} 
-                            onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
-                        >
-                        </textarea>
-                    </div>
-                    <button type='submit'>Comment</button>
-                </form>
+                        <CommentList comments={course.comments} />
+                                
+                        <form onSubmit={handleSubmit} className="mt-4">
+                            <div className="flex flex-col">
+                                <label htmlFor='content'>comment:</label>
+                                <textarea 
+                                    id='content'
+                                    rows="3"
+                                    placeholder="What are your thoughts?"
+                                    value={form.content}
+                                    onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} 
+                                    onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
+                                >
+                                </textarea>
+                            </div>
+                            <button type='submit'>Comment</button>
+                        </form>
+                    </div>           
             </div>
-
         </div>
 
     )
