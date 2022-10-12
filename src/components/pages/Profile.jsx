@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import btn from "../../bloomStyles"
+
 
 // Partials
 import MyCourses from '../partials/MyCourses'
@@ -91,22 +93,27 @@ export default function Profile({ currentUser, handleLogout }) {
 
   // Output
 	return (
-		<div>
-			{msg ? <Link className='float-right underline' to={`edit`}>edit profile</Link> : <h3>{msg}</h3>}
 
-      <section className='profile'>
-        <h1>Hello, {userDetails.name}</h1>
-        <p>your email is {userDetails.email}</p>
-      </section>
+		<div className='container mx-auto mt-1' >
+      <div>
+        {msg ? <Link className={`float-right ${btn} font-medium`} to={`edit`}>edit profile</Link> : <h3>{msg}</h3>}
 
-      <MyCourses 
-        myCourses={myCourses}
-      />
+        <section className='profile'>
+          <h1 className='text-3xl'>Hello, {userDetails.name}</h1>
+          {/* <p>your email is {userDetails.email}</p> */}
+        </section>
+      </div>
+
+      <div className='4'>
+          <MyCourses 
+            myCourses={myCourses}
+          />
+      </div>
 
       <PaidCourses 
         paidCourses={paidCourses}
       />
 
-		</div>
+    </div>
 	)
 }
