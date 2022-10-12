@@ -48,7 +48,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
   }
 
   return (
-        <div class="flex justify-center mt-20 max-w-full" >
+        <div class="flex justify-center pt-20 max-w-full" >
 
           <div class=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
 
@@ -62,7 +62,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
                       type="text" 
                       id="name"
                       name="name"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
                       placeholder="your new username"
                       value={name} 
                       onChange={e => handleChange(e, 'name')} 
@@ -75,7 +75,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
                   <input 
                     type="email" 
                     id="email" 
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
                     placeholder="youremail@gmail.com"
                     value={email} 
                     onChange={e => handleChange(e, 'email')} 
@@ -83,7 +83,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
                   />
                 </div>
 
-                <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-6 border border-gray-400 mt-2 rounded shadow" type="submit">
+                <button className="bg-[#898e59] hover:bg-[#aab161] text-gray-800 font-medium py-1 px-6 border border-gray-400 mt-2 rounded shadow" type="submit">
                   Submit Edit
                 </button>
               </form>
