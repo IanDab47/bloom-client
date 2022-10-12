@@ -57,7 +57,10 @@ export default function Navbar({ currentUser, handleLogout }) {
         </div>
       </div>
 
-      <Hamburger />
+      <Hamburger
+        currentUser={currentUser}
+        handleLogout={handleLogout}
+      />
 
       {currentUser ? loggedIn() : loggedOut()}
 
