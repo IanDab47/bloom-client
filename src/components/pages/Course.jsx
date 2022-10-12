@@ -83,6 +83,19 @@ export default function Course(props){
         }
     }
 
+    const handleCommentDelete = async (commentId) => {
+        try {
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}/comments/${commentId}/delete`);
+            setCourse(response.data);
+        }
+        catch (error) {
+            console.warn(error);
+            if (error.response) {
+                setErrorMessage(error.response.data.message);
+            }
+        }
+    }
+
     return(
         <div className="flex justify-center pt-10 max-w-full" >
             <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
@@ -102,7 +115,11 @@ export default function Course(props){
                         <p><strong>Price:</strong> ${course.price}</p>
                         <p><strong>Description:</strong> {course.description}</p>
                 
-                        <CommentList comments={course.comments} />
+                        <CommentList 
+                            comments={course.comments} 
+                            currentUser={props.currentUser}
+                            handleCommentDelete={handleCommentDelete} 
+                        />
                                 
                         <form onSubmit={handleSubmit} className="mt-4">
                             <div className="flex flex-col">
