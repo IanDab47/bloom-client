@@ -91,9 +91,7 @@ export default function Course(props){
             <p>{errorMessage}</p>
 
             <div>
-                <Link to={`/courses/${courseId}/edit`}>
-                    <button>Edit</button>
-                </Link>
+                <Link to={`/courses/${courseId}/edit`}>Edit</Link>
 
                 {" | "}
 
@@ -103,14 +101,15 @@ export default function Course(props){
 
                 { " | " } 
 
-                <button onClick={addToCart}>Add to cart</button>
+                <button onClick={addToCart}>
+                    Add to cart
+                </button>
             </div>
 
             <div>
-                <h1><strong>Title:</strong> {course.title}</h1>
+                <h2><strong>Title:</strong> {course.title}</h2>
 
-                <p><img src={course.photoLink} alt={course.title} width="200"
-                height="80"/></p>
+                <img src={course.photoLink} alt={course.title} width="200" height="80" />
 
                 <p><strong>Price:</strong> ${course.price}</p>
 
@@ -118,20 +117,23 @@ export default function Course(props){
 
                 
                 
-                    <div> <CommentList comments={course.comments} /> </div>
+                <CommentList comments={course.comments} />
                            
-         <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor='content'>comment:</label>
-                <input 
-                    type="text"
-                    id='content'
-                    placeholder='Comment here'
-                    value={form.content}
-                    onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} />
-            </div>
-            <button type='submit'>Comment</button>
-         </form>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="flex flex-col">
+                        <label htmlFor='content'>comment:</label>
+                        <textarea 
+                            id='content'
+                            rows="3"
+                            placeholder="What are your thoughts?"
+                            value={form.content}
+                            onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} 
+                            onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
+                        >
+                        </textarea>
+                    </div>
+                    <button type='submit'>Comment</button>
+                </form>
             </div>
 
         </div>
