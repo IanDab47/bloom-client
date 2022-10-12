@@ -1,6 +1,7 @@
-import { useParams, Link, useNavigate } from 'react-router-dom' 
+import { useParams, useNavigate } from 'react-router-dom' 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CourseActionButtons from "../partials/CourseActionButtons";
 import CommentList from '../partials/CommentList'
 
 export default function Course(props){
@@ -90,21 +91,12 @@ export default function Course(props){
 
             <p>{errorMessage}</p>
 
-            <div>
-                <Link to={`/courses/${courseId}/edit`}>Edit</Link>
-
-                {" | "}
-
-                <button onClick={handleDelete}>
-                    Delete
-                </button>
-
-                { " | " } 
-
-                <button onClick={addToCart}>
-                    Add to cart
-                </button>
-            </div>
+            <CourseActionButtons 
+                currentUser={props.currentUser}
+                course={course} 
+                handleDelete={handleDelete} 
+                addToCart={addToCart} 
+            />
 
             <div>
                 <h2><strong>Title:</strong> {course.title}</h2>
