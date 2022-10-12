@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CartList from "../partials/CartList";
 import CheckoutBtn from "../partials/CheckoutBtn";
 
 function Cart(props) {
+    const navigate = useNavigate();
     const [cartCourses, setCartCourses] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     useEffect(() => {
@@ -60,12 +62,13 @@ function Cart(props) {
         const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${props.currentUser.id}/cart`);
         // response from server should be an empty (shoppingCart) array
         setCartCourses(response.data);
+        navigate(`/users/${props.currentUser.id}`);
     }
     return (
 
-            <div class="flex justify-center pt-20 max-w-full" >
-                <div class=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
-                    <h5 class="text-gray-900 text-2xl leading-tight font-medium mb-2">Your Shopping Cart</h5>    
+            <div className="flex justify-center pt-20 max-w-full" >
+                <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
+                    <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Your Shopping Cart</h5>    
 
                     {errorMessage}
                     <CartList cartCourses={cartCourses} handleRemoveClick={handleRemoveClick} />
