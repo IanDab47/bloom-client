@@ -107,7 +107,7 @@ export default function About(){
                 <div>
                     <img
                         className="object-cover w-48 h-48 rounded-full shadow"
-                        src="https://i.imgur.com/7VYeRVy.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                        src="https://i.imgur.com/lhxtqvr.png?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                         alt="Zion"
                     />
                     <div className="flex flex-col justify-center mt-2">
