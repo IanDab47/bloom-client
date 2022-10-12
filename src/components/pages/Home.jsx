@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Carousel from "../partials/Carousel";
-import CourseList from "../partials/CourseList";
+import Carousel from "../partials/Carousel"
+import CourseList from "../partials/CourseList"
 import btn from "../../bloomStyles"
 
 export default function Home(){
@@ -20,7 +20,7 @@ export default function Home(){
             } catch(err) {
                 console.warn(err)
                 if (err.response) {
-                    setErrorMessage(err.response.data.message)   
+                    setErrorMessage(err.response.data.message)
                 }
             }
         }
@@ -36,13 +36,11 @@ export default function Home(){
       return _ => window.removeEventListener('resize', handleResize)
     }, [windowSize])
 
-    const isWide = windowSize > 1400
-    const isThird = windowSize > 1100
-    const isHalf = windowSize > 900
-    const isSmall = windowSize > 700
-    const isPhone = windowSize > 500
-
-    console.log(windowSize)
+    const isWide = windowSize > 1536
+    const isThird = windowSize > 1280
+    const isHalf = windowSize > 1024
+    const isSmall = windowSize > 768
+    const isPhone = windowSize > 640
 
     return (
         <div className={`relative flex flex-col overflow-x-hidden`}>
@@ -53,12 +51,12 @@ export default function Home(){
 
               <div className={`relative pb-12 pl-[5%] ${isWide ? 'w-[45%]' : 'w-[90]'}`}>
                 <h1 
-                  className={`self-center font-bloom-sans font-light italic text-bloom-gray ${isWide ? 'text-8xl whitespace-nowrap' : 'text-7xl' }`}
+                  className={`self-center font-bloom-sans font-light italic text-bloom-gray ${isWide ? 'text-8xl whitespace-nowrap' : isPhone ? 'text-7xl' : 'text-5xl'}`}
                 >
                   Allow others to blossom {isHalf && !isThird || isWide ? <br /> : ''}alongside you!
                 </h1>
                 <p 
-                  className={`self-center text-justify w-[90%] max-w-[33rem] font-bloom-sans font-normal text-bloom-gray whitespace-wrap leading-snug my-4 ${isWide ? 'text-3xl' : 'text-2xl'}`}
+                  className={`self-center text-justify w-[90%] max-w-[33rem] font-bloom-sans font-normal text-bloom-gray whitespace-wrap leading-snug my-4 ${isWide ? 'text-3xl' : isPhone ? 'text-2xl' : 'text-xl'}`}
                 >
                   Create a new course and spread your knowledge to those who are thrilled to find out about what you do!
                 </p>
