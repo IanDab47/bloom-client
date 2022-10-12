@@ -119,16 +119,18 @@ export default function Course(props){
                 
                 <CommentList comments={course.comments} />
                            
-                <form onSubmit={handleSubmit}>
-                    <div>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="flex flex-col">
                         <label htmlFor='content'>comment:</label>
-                        <input 
-                            type="text"
+                        <textarea 
                             id='content'
-                            placeholder='Comment here'
+                            rows="3"
+                            placeholder="What are your thoughts?"
                             value={form.content}
                             onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} 
-                        />
+                            onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
+                        >
+                        </textarea>
                     </div>
                     <button type='submit'>Comment</button>
                 </form>
