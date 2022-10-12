@@ -1,11 +1,13 @@
 import Comment from "./Comment";
 
-export default function CommentList({comments}) {
+export default function CommentList({comments, currentUser, handleCommentDelete}) {
     const commentComponents = comments.map((comment, index) => {
         return (
             <Comment 
                 comment={comment}
                 key={`comment-${index}`}
+                currentUser={currentUser}
+                handleCommentDelete={handleCommentDelete}
             />
         );
     });
