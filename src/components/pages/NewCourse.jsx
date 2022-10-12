@@ -6,7 +6,7 @@ export default function NewCourse(props){
 
     const [form, setForm] = useState({
         title: '',
-        createdBy:props.currentUser.id,
+        createdBy: '',
         price: '',
         description: '',
         photoLink: ''
@@ -20,7 +20,8 @@ export default function NewCourse(props){
         try {
             e.preventDefault()
             // post form data to the backend API
-             await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`, form)
+            setForm({...form, createdBy: props.currentUser.id});
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`, form)
             // navigate back to /courses to see the new course
             navigate('/courses')
         } catch(err) {
@@ -30,11 +31,18 @@ export default function NewCourse(props){
             }
         }
     }
+    console.log(props.currentUser)
+
+    if (!props.currentUser) {
+		navigate(`/login`);
+	}
 
     return(
 
         <div className="flex justify-center pt-20 max-w-full" >
             <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-7/12 max-w-full">
+
+                
                 <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Create a New Course</h5>    
 
                 <p>{errorMessage}</p>
