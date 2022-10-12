@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function CourseActionButtons({currentUser, course, handleDelete, addToCart}) {
+    const [inCart, setInCart] = useState(false);
     return (
         <div>
             {/* is the current user the creator of this course? yes/no */}
-            {currentUser.id === course.createdBy ?
+            {currentUser && currentUser.id === course.createdBy ?
                 <>
                     <Link to={`/courses/${course._id}/edit`}>Edit</Link>
         
@@ -15,11 +17,16 @@ function CourseActionButtons({currentUser, course, handleDelete, addToCart}) {
                     </button>
                 </>
                 :
-                <>
-                    <button onClick={addToCart}>
-                        Add to cart
-                    </button>
-                </>
+                inCart ?
+                    <>
+                        <p className="text-green-500">Added to cart</p>
+                    </>
+                :
+                    <>
+                        <button onClick={() => {addToCart(); setInCart(true)}} className="px-3 py-1 rounded-lg text-white bg-blue-500 hover:bg-blue-600">
+                            Add to cart
+                        </button>
+                    </>
             }
         </div>
     );

@@ -59,8 +59,6 @@ export default function Course(props){
     const addToCart = async () => {
         try { 
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${props.currentUser.id}/cart/${courseId}` )
-            navigate(`/users/${props.currentUser.id}/cart`)
-            
         } catch(err) {
             console.warn(err)
             if (err.response) {
