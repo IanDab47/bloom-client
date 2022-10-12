@@ -31,7 +31,6 @@ export default function NewCourse(props){
             }
         }
     }
-    console.log(props.currentUser)
 
     if (!props.currentUser) {
 		navigate(`/login`);

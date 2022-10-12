@@ -66,9 +66,9 @@ function Cart(props) {
     }
     return (
 
-            <div class="flex justify-center pt-20 max-w-full" >
-                <div class=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
-                    <h5 class="text-gray-900 text-2xl leading-tight font-medium mb-2">Your Shopping Cart</h5>    
+            <div className="flex justify-center pt-20 max-w-full" >
+                <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
+                    <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Your Shopping Cart</h5>    
 
                     {errorMessage}
                     <CartList cartCourses={cartCourses} handleRemoveClick={handleRemoveClick} />
