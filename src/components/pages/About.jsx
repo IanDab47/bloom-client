@@ -5,8 +5,8 @@ export default function About(){
 
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Team</h2>
-                <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">The Bloom App was created by this team <br></br>using MongoDB, Express, React and Node.</p>
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">Our Team</h2>
+                <p class="font-light text-gray-500 lg:mb-16 sm:text-xl ">The Bloom App was created by this team <br></br>using MongoDB, Express, React and Node.</p>
             </div> 
             
             <div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">       
