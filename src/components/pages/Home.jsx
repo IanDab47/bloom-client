@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from "../partials/Carousel"
-import CourseList from "../partials/CourseList"
+import FeaturedCourseList from "../partials/FeaturedCourseList"
 import btn from "../../bloomStyles"
 
 export default function Home(){
@@ -71,7 +71,7 @@ export default function Home(){
 
             <h3 className={`my-8 ${isWide || !isPhone ? 'ml-[12%]' : 'self-end mr-[12%]'} text-xl font-bloom-sans text-5xl font-light italic`}>Featured Courses</h3>
             <div className="self-center w-5/6 overflow-scroll">
-              <CourseList courses={courses} /> 
+              <FeaturedCourseList courses={courses} /> 
             </div>
 
             <p>{errorMessage}</p>
