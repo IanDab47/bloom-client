@@ -39,7 +39,7 @@ function Carousel({ isWide }) {
             <div className="carousel-inner relative w-full overflow-hidden">
                 <div className="carousel-item active relative float-left w-full">
                     <img
-                        src="https://i.imgur.com/Nd7b6v8.png"
+                        src="https://i.imgur.com/bbBE46t.png"
                         // className="block w-full h-96 object-cover align-middle"
                         className="aspect-video block w-full object-cover align-middle"
                         alt="..."
@@ -52,7 +52,7 @@ function Carousel({ isWide }) {
 
                 <div className="carousel-item relative float-left w-full">
                     <img
-                        src="https://i.imgur.com/PGdtGHh.png"
+                        src="https://i.imgur.com/zO2FEG8.png"
                         // className="block w-full h-96 object-cover align-middle"
                         className="aspect-video block w-full object-cover align-middle"
                         alt="..."
@@ -65,7 +65,7 @@ function Carousel({ isWide }) {
 
                 <div className="carousel-item relative float-left w-full">
                     <img
-                        src="https://i.imgur.com/ICK45WM.png"
+                        src="https://i.imgur.com/yuRVzkx.png"
                         // className="block w-full h-96 object-cover align-middle"
                         className="aspect-video block w-full object-cover align-middle"
                         alt="..."
@@ -78,7 +78,7 @@ function Carousel({ isWide }) {
 
                 <div className="carousel-item relative float-left w-full">
                     <img
-                        src="https://i.imgur.com/TrKJPFd.png"
+                        src="https://i.imgur.com/9m3YclC.png"
                         // className="block w-full h-96 object-cover align-middle"
                         className="aspect-video block w-full object-cover align-middle"
                         alt="..."
@@ -91,7 +91,7 @@ function Carousel({ isWide }) {
 
                 <div className="carousel-item relative float-left w-full">
                     <img
-                        src="https://i.imgur.com/Qnp6Y0v.png"
+                        src="https://i.imgur.com/hcl85zZ.png"
                         // className="block w-full h-96 object-cover align-middle"
                         className="aspect-video block w-full object-cover align-middle"
                         alt="..."
