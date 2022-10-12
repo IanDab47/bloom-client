@@ -23,7 +23,7 @@ function CourseActionButtons({currentUser, course, handleDelete, addToCart}) {
                     </>
                 :
                     <>
-                        <button onClick={() => {addToCart(); setInCart(true)}} className="px-3 py-1 rounded-lg text-white bg-blue-500 hover:bg-blue-600">
+                        <button onClick={() => {addToCart(); setInCart(true)}} className="px-3 py-1 rounded-lg text-white bg-bloom-olive hover:bg-blue-600">
                             Add to cart
                         </button>
                     </>
