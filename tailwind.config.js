@@ -13,7 +13,9 @@ module.exports = {
       colors: {
         'bloom-gray': '#373e3d',
         'bloom-sage': '#b9c1a6',
-        'bloom-olive': '#898e59'
+        'bloom-olive': '#898e59',
+        'bloom-gold': '#d1c28d',
+        'bloom-red': '#ff4b5b'
       },
     },
   },
