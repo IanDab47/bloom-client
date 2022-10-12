@@ -95,7 +95,7 @@ export default function App() {
 
           <Route // Edit Course
             path="/courses/:courseId/edit" 
-            element={<EditCourse />}
+            element={<EditCourse currentUser={currentUser} />}
           />
 
           <Route // Create Account
