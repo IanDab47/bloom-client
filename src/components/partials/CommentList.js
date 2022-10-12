@@ -1,11 +1,18 @@
+import Comment from "./Comment";
+
 export default function CommentList({comments}) {
-    const comment = comments.map((comment, index) => {
-        return <p key={`comment-${index}`}> {comment.content} <strong>commenter:</strong>{comment.commenter.name}</p>
+    const commentComponents = comments.map((comment, index) => {
+        return (
+            <Comment 
+                comment={comment}
+                key={`comment-${index}`}
+            />
+        );
     });
     return (
-        <div>
-            <h3><strong>Comments:</strong></h3>
-            {comment}
+        <div className="mt-8">
+            <h3 className="font-bold">({comments.length}) Comments:</h3>
+            {commentComponents}
         </div>
     );
 }
