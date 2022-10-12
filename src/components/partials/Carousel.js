@@ -1,6 +1,6 @@
-function Carousel() {
+function Carousel({ isWide }) {
     return (
-        <div id="carouselExampleCaptions" className="carousel slide relative w-full float-right drop-shadow-lg" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" className={`carousel slide relative w-full max-w-[75rem] drop-shadow-lg ${isWide ? 'float-right' : ''}`} data-bs-ride="carousel">
             <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-2">
                 <button
                 type="button"
