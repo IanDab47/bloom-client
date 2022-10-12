@@ -32,69 +32,71 @@ export default function NewCourse(props){
     }
 
     return(
-        <div class= " flex flex-col h-screen justify-center items-center">
-           
 
-            <p>{errorMessage}</p>
+        <div className="flex justify-center pt-20 max-w-full" >
+            <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-7/12 max-w-full">
+                <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Create a New Course</h5>    
 
-                <div class=" p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 md:p-8 bg-[#b9c1a6]">
-    <form class="space-y-6" action="#" onSubmit={handleSubmit}>
-        <h5 class="text-xl font-bloom-sans text-bloom-grey font-bold ">Make New Course Here</h5>
-        <div>
-        <label htmlFor='title' class=" font-bloom-sans text-bloom-grey block mb-2 text-sm font-medium  ">Title</label>
-                    <input
-                        type='text'
-                        id='title'
-                        value={form.title}
-                        placeholder='Title'
-                        onChange={e => setForm({ ...form, title: e.target.value })}
-                        class= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required
-                    />
+                <p>{errorMessage}</p>
+                         
+                <form className="space-y-6" action="#" onSubmit={handleSubmit}>            
+                    <div>
+                        <label htmlFor='title' className=" font-bloom-sans text-grey-800 block mb-2 text-sm font-medium  ">Title</label>
+                        <input
+                            type='text'
+                            id='title'
+                            value={form.title}
+                            placeholder='Title of the Course'
+                            onChange={e => setForm({ ...form, title: e.target.value })}
+                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5  " 
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor='price' className="block mb-2 text-sm font-medium font-bloom-sans text-bloom-grey">Price</label>
+                        <input 
+                            type='number'
+                            id='price'
+                            value={form.price}
+                            placeholder='Price of Course'
+                            onChange={e => setForm({ ...form, price: e.target.value })}
+                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5  " 
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor='photoLink' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Picture</label>
+                        <input 
+                            type='text'
+                            id='photoLink'
+                            value={form.photoLink}
+                            placeholder='Enter link to picture here'
+                            onChange={e => setForm({ ...form, photoLink: e.target.value })}
+                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5  " 
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor='description' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Description</label>
+                        <textarea 
+                            type='text'
+                            id='description'
+                            value={form.description}
+                            placeholder='Enter the Description of the course...'
+                            onChange={e => setForm({ ...form, description: e.target.value })}
+                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5   " 
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" className=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-full ">Submit</button>
+                </form>
+            </div>
         </div>
-        <div>
-        <label htmlFor='price' class="block mb-2 text-sm font-medium font-bloom-sans text-bloom-grey">Price</label>
-                    <input 
-                        type='number'
-                        id='price'
-                        value={form.price}
-                        placeholder='Price of course'
-                        onChange={e => setForm({ ...form, price: e.target.value })}
-                        class= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
-                        required
-                    />
-        </div>
-        <div>
-                    <label htmlFor='photoLink' class="block mb-2 text-sm font-bloom-sans text-bloom-grey">Picture</label>
-                    <input 
-                        type='text'
-                        id='photoLink'
-                        value={form.photoLink}
-                        placeholder='Enter picture link address here'
-                        onChange={e => setForm({ ...form, photoLink: e.target.value })}
-                        class= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor='description' class="block mb-2 text-sm font-bloom-sans text-bloom-grey">Description</label>
-                    <textarea 
-                        type='text'
-                        id='description'
-                        value={form.description}
-                        placeholder='Describe your course here'
-                        onChange={e => setForm({ ...form, description: e.target.value })}
-                        class= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
-                        required
-                    />
-                </div>
-        <button type="submit" class=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-full ">Make Course</button>
         
-    </form>
-</div>
-
-
-        </div>
 
     )
 }
