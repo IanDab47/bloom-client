@@ -84,7 +84,7 @@ export default function Course(props){
     }
 
     return(
-        <div className="flex justify-center mt-10 max-w-full" >
+        <div className="flex justify-center pt-10 max-w-full" >
             <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
                 <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Course Details</h5>    
                     <p>{errorMessage}</p>

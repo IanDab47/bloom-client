@@ -66,7 +66,7 @@ export default function App() {
       </header>
 
       {/* top margin of 24 px away from navbar, 66.66% width, center div */}
-      <div className="relative w-screen bg-stone-100 mx-auto">
+      <div className="relative w-screen min-h-screen bg-stone-100 mx-auto pb-20">
         <Routes>
           <Route // Landing
             path="/"
