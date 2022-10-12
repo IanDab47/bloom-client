@@ -30,8 +30,8 @@ export default function Courses(){
         getCourses()
     }, [search]);  // fire on page load and on search state update
     return(
-        <div>
-            <h1 className="text-3xl">All Courses</h1>
+        <div className="p-10">
+            <h1 className="text-3xl mb-2">All Courses</h1>
             <CourseSearch search={search} setSearch={setSearch} />
             <CourseList courses={courses} />
 
