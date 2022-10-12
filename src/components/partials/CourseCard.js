@@ -12,7 +12,7 @@ function CourseCard({course}) {
         getUser();
     });
     return (
-        <div className="min-w-[300px] bg-white rounded-lg border border-gray-200 shadow-md bg-[#b9c1a6] ">
+        <div className="min-w-[300px] max-w-[400px] bg-white rounded-lg border border-gray-200 shadow-md bg-[#b9c1a6] ">
             <Link to={`/courses/${course._id}`} >
                 <img className="rounded-t-lg" src={course.photoLink} alt="" />
             </Link>

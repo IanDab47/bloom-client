@@ -5,7 +5,7 @@ function CourseList({courses}) {
         return <CourseCard course={course} key={course._id} />
     });
     return (
-        <div className="mt-3 flex gap-8">
+        <div className="mt-3 flex flex-wrap gap-8">
             {courseCardComponents}
         </div>
     );
