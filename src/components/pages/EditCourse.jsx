@@ -50,63 +50,15 @@ export default function EditCourse({currentUser}){
 		navigate(`/courses/${courseId}`);
 	}
     return(
-        <div className= "flex flex-col h-screen justify-center items-center">
+        <div className= "flex justify-center pt-20 max-w-full">
             
 
             <p>{errorMessage}</p>
 
-            {/* <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='title'>title:</label>
-                    <input
-                        type='text'
-                        id='title'
-                        value={form.title}
-                        placeholder='Title'
-                        onChange={e => setForm({ ...form, title: e.target.value })}
-                    />
-                </div>
 
-                <div>
-                    <label htmlFor='price'>Price:</label>
-                    <input 
-                        type='number'
-                        id='price'
-                        value={form.price}
-                        placeholder='Price for course'
-                        onChange={e => setForm({ ...form, price: e.target.value })}
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor='description'>Description:</label>
-                    <input 
-                        type='text'
-                        id='description'
-                        value={form.description}
-                        placeholder='Describe your course here'
-                        onChange={e => setForm({ ...form, description: e.target.value })}
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor='photoLink'>Link Photos:</label>
-                    <input 
-                        type='text'
-                        id='photoLink'
-                        value={form.photoLink}
-                        placeholder='enter photo link'
-                        onChange={e => setForm({ ...form, photoLink: e.target.value })}
-                    />
-                </div>
-
-                <button type='submit'>Submit edit</button>
-            </form> */}
-
-            <div className=" p-4 w-full max-w-sm bg-white rounded-lg border shadow-sm sm:p-6 md:p-8 bg-[#b9c1a6]">
+            <div className="p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-7/12 max-w-full">
     <form className="space-y-6" action="#" onSubmit={handleSubmit}>
-        <h5 className="text-xl font-bloom-sans text-bloom-grey font-bold text-center "><u>Edit Your Course Here</u></h5>
-        <h4 className="text-xl font-bloom-sans text-bloom-grey font-bold text-center ">{form.title}</h4>
+        <h5 className="text-2xl font-bloom-sans text-bloom-grey font-bold  ">Edit Course</h5>
         <div>
         <label htmlFor='title' className=" font-bloom-sans text-bloom-grey block mb-2 text-sm font-medium  ">Title</label>
                     <input
@@ -115,7 +67,7 @@ export default function EditCourse({currentUser}){
                         value={form.title}
                         placeholder=''
                         onChange={e => setForm({ ...form, title: e.target.value })}
-                        className= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
                         required
                     />
         </div>
@@ -127,7 +79,7 @@ export default function EditCourse({currentUser}){
                         value={form.price}
                         placeholder='Price of course'
                         onChange={e => setForm({ ...form, price: e.target.value })}
-                        className= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
                         
                     />
         </div>
@@ -139,7 +91,7 @@ export default function EditCourse({currentUser}){
                         value={form.photoLink}
                         placeholder='Enter picture link address here'
                         onChange={e => setForm({ ...form, photoLink: e.target.value })}
-                        className= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
                     />
                 </div>
                 <div>
@@ -150,7 +102,7 @@ export default function EditCourse({currentUser}){
                         value={form.description}
                         placeholder='Describe your course here'
                         onChange={e => setForm({ ...form, description: e.target.value })}
-                        className= " font-bloom-sans border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-[#373e3d] dark:placeholder-gray-400 dark:text-white"
+                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
                     />
                 </div>
         <button type="submit" className=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-50 ">Confirm Edit</button>
