@@ -14,7 +14,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           View Cart
         </Link>{" | "}
 
-        <Link to={`/users/${currentUser.id}/`} className='hover:text-bloom-sage focus:text-bloom-olive'>
+        <Link to={`/users/${currentUser.id}`} className='hover:text-bloom-sage focus:text-bloom-olive'>
           Profile
         </Link>{" | "}
 
