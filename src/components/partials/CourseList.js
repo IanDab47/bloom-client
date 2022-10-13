@@ -5,7 +5,7 @@ function CourseList({courses, myEmpty, paidEmpty}) {
         return <CourseCard myEmpty={myEmpty} paidEmpty={paidEmpty} course={course} key={course._id} />
     });
     return (
-        <div className="mt-3 flex flex-wrap gap-8">
+        <div className="mt-3 flex flex-wrap gap-8 justify-center">
             {courseCardComponents}
         </div>
     );
