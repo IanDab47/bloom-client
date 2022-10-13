@@ -7,7 +7,7 @@ export default function MyCourse({myCourses}) {
       {myCourses.length > 0 ?
         <CourseList courses={myCourses} />
         :
-        <p>You have not created any courses</p>
+        <CourseList myEmpty={true} courses={[{ _id: 'No Created Courses' }]} />
       }
     </div>
   )

@@ -7,7 +7,7 @@ export default function PaidCourses({paidCourses}) {
       {paidCourses.length > 0 ? 
         <CourseList courses={paidCourses} />
         :
-        <p>You have not purchased any courses</p>
+        <CourseList paidEmpty={true} courses={[{ _id: 'No Created Courses' }]} />
       }
     </div>
   )
