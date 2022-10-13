@@ -105,9 +105,9 @@ export default function Profile({ currentUser, handleLogout }) {
   const userOptions = () => {
     return (
       <div className='flex flex-col sm:gap-8 font-bloom-sans font-light text-4xl italic sm:mt-12 sm:mr-20'>
-        <Link className={`sm:w-56 lg:w-64 bg-bloom-gold text-right pr-6 py-2 sm:rounded-tr-sm sm:rounded-br-2xl`} to={`edit`}>Edit Profile</Link>
+        <Link className={`sm:w-56 lg:w-64 bg-bloom-gold hover:bg-[#c1b28d] text-right pr-6 py-2 sm:rounded-tr-sm sm:rounded-br-2xl`} to={`edit`}>Edit Profile</Link>
 
-        <Link className={`sm:w-56 lg:w-64 bg-bloom-red text-right pr-6 py-2 sm:rounded-tr-sm sm:rounded-br-2xl text-stone-50 drop-shadow-lg`} to='/' onClick={deleteUser}>Delete Profile</Link>
+        <Link className={`sm:w-56 lg:w-64 bg-bloom-red hover:bg-red-600 text-right pr-6 py-2 sm:rounded-tr-sm sm:rounded-br-2xl text-stone-50 drop-shadow-lg`} to='/' onClick={deleteUser}>Delete Profile</Link>
       </div>
     )
   }

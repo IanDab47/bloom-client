@@ -141,7 +141,7 @@ export default function Course(props){
                                     onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
                                 >
                                 </textarea>
-                                <button type="submit" className={`${btn} mt-2 w-fit self-end`}>Comment</button>
+                                <button type="submit" className={`text-lg mt-2 w-fit self-end px-6 py-1.5 rounded-lg font-bloom-sans text-lg text-stone-50 bg-bloom-olive hover:bg-[#9aa161]`}>Comment</button>
                             </div>
                         </form>
                     </div>           

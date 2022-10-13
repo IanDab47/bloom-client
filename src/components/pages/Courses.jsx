@@ -32,8 +32,12 @@ export default function Courses(){
     return(
         <div className="p-10">
             <h1 className="text-3xl mb-2">All Courses</h1>
+            
             <CourseSearch search={search} setSearch={setSearch} />
-            <CourseList courses={courses} />
+
+            <div className='mt-3 flex flex-wrap justify-center gap-8'>
+              <CourseList courses={courses} />
+            </div>
 
             <p>{errorMessage}</p>
         </div>
