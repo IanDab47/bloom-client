@@ -46,13 +46,15 @@ export default function EditProfile({ currentUser, handleLogout }) {
       console.warn(err)
     }
   }
-
+  if (currentUser && currentUser.id !== userId) {
+    navigate(`/users/${userId}`);
+  }
   return (
-        <div class="flex justify-center pt-20 max-w-full" >
+        <div className="flex justify-center pt-20 max-w-full" >
 
-          <div class=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
+          <div className=" p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-6/12 max-w-full">
 
-            <h5 class="text-gray-900 text-2xl leading-tight font-medium mb-2">Edit Profile</h5>
+            <h5 className="text-gray-900 text-2xl leading-tight font-medium mb-2">Edit Profile</h5>
 
             <Link className='float-right underline' to={`/users/${userId}`}>Cancel</Link>
               <form onSubmit={editUserDetails}>
@@ -62,7 +64,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
                       type="text" 
                       id="name"
                       name="name"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
                       placeholder="your new username"
                       value={name} 
                       onChange={e => handleChange(e, 'name')} 
@@ -75,7 +77,7 @@ export default function EditProfile({ currentUser, handleLogout }) {
                   <input 
                     type="email" 
                     id="email" 
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " 
                     placeholder="youremail@gmail.com"
                     value={email} 
                     onChange={e => handleChange(e, 'email')} 
