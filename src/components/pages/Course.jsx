@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CourseActionButtons from "../partials/CourseActionButtons";
 import CommentList from '../partials/CommentList'
+import btn from "../../bloomStyles";
 
 export default function Course(props){
     const [creator, setCreator] = useState("");
@@ -112,7 +113,7 @@ export default function Course(props){
                     />
 
                     <div>
-                        <h2><strong>Title:</strong> {course.title}</h2>
+                        <h2 className="mt-2"><strong>Title:</strong> {course.title}</h2>
                         <div className="flex gap-1">
                             <p className="font-semibold">Creator:</p>
                             <Link to={`/users/${course.createdBy}`} className="hover:text-stone-500">{creator}</Link>
@@ -129,18 +130,19 @@ export default function Course(props){
                                 
                         <form onSubmit={handleSubmit} className="mt-4">
                             <div className="flex flex-col">
-                                <label htmlFor='content'>comment:</label>
+                                <label htmlFor="content" className="hidden">Comment</label>
                                 <textarea 
                                     id='content'
                                     rows="3"
                                     placeholder="What are your thoughts?"
+                                    className="p-1 border rounded"
                                     value={form.content}
                                     onChange={e => setForm({content: e.target.value, commenter: props.currentUser.id})} 
                                     onKeyDown={e => {if (e.code === "Enter") handleSubmit(e)}}
                                 >
                                 </textarea>
+                                <button type="submit" className={`${btn} mt-2 w-fit self-end`}>Comment</button>
                             </div>
-                            <button type='submit'>Comment</button>
                         </form>
                     </div>           
             </div>
