@@ -64,7 +64,7 @@ export default function Profile({ currentUser, handleLogout }) {
 				}
 			}
 			fetchData()
-	}, []) // only fire on the first render of this component
+	}, [paidCourses]) // only fire on the first render of this component and on paidCourses update
 
   // Handlers
   const getMyCourses = async (paidCourses) => {
