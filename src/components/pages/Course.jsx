@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom' 
+import { useParams, useNavigate, Link } from 'react-router-dom' 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CourseActionButtons from "../partials/CourseActionButtons";
@@ -113,7 +113,10 @@ export default function Course(props){
 
                     <div>
                         <h2><strong>Title:</strong> {course.title}</h2>
-                        <p><strong>Creator:</strong> {creator}</p>
+                        <div className="flex gap-1">
+                            <p className="font-semibold">Creator:</p>
+                            <Link to={`/users/${course.createdBy}`} className="hover:text-stone-500">{creator}</Link>
+                        </div>
                         <img src={course.photoLink} alt={course.title} width="600"/>
                         <p><strong>Price:</strong> ${course.price}</p>
                         <p><strong>Description:</strong> {course.description}</p>
