@@ -52,9 +52,7 @@ export default function EditCourse({currentUser}){
     return(
         <div className= "flex justify-center pt-20 max-w-full">
             
-
             <p>{errorMessage}</p>
-
 
             <div className="p-6 rounded-lg shadow-lg bg-white md:mx-auto md:w-7/12 max-w-full">
     <form className="space-y-6" action="#" onSubmit={handleSubmit}>
@@ -73,26 +71,26 @@ export default function EditCourse({currentUser}){
         </div>
         <div>
         <label htmlFor='price' className="block mb-2 text-sm font-medium font-bloom-sans text-bloom-grey">Price</label>
-                    <input 
-                        type='number'
-                        id='price'
-                        value={form.price}
-                        placeholder='Price of course'
-                        onChange={e => setForm({ ...form, price: e.target.value })}
-                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
-                        
-                    />
+                <input 
+                    type='number'
+                    id='price'
+                    value={form.price}
+                    placeholder='Price of course'
+                    onChange={e => setForm({ ...form, price: e.target.value })}
+                    className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
+                    
+                />
         </div>
         <div>
-                    <label htmlFor='photoLink' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Picture</label>
-                    <input 
-                        type='text'
-                        id='photoLink'
-                        value={form.photoLink}
-                        placeholder='Enter picture link address here'
-                        onChange={e => setForm({ ...form, photoLink: e.target.value })}
-                        className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
-                    />
+                <label htmlFor='photoLink' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Picture</label>
+                <input 
+                    type='text'
+                    id='photoLink'
+                    value={form.photoLink}
+                    placeholder='Enter picture link address here'
+                    onChange={e => setForm({ ...form, photoLink: e.target.value })}
+                    className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
+                />
                 </div>
                 <div>
                     <label htmlFor='description' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Description</label>
@@ -105,8 +103,9 @@ export default function EditCourse({currentUser}){
                         className= " bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 "
                     />
                 </div>
-        <button type="submit" className=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-50 ">Confirm Edit</button>
-        <Link  to={`/courses/${form._id}`}><button className="   items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-red-700 hover:bg-red-600 w-50 ">cancel</button></Link>
+        
+        <button type="submit" className=" items-center mx-1 py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-50 ">Confirm Edit</button> 
+        <Link  to={`/courses/${form._id}`}><button className="   items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-neutral-500 hover:bg-neutral-600 w-50 ">cancel</button></Link>
     </form>
 </div>
         </div>
