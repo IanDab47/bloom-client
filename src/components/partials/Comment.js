@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DelCommentBtn from "./DelCommentBtn";
 
 function Comment({comment, currentUser, handleCommentDelete}) {
@@ -5,7 +6,9 @@ function Comment({comment, currentUser, handleCommentDelete}) {
     return (
         <div className="mt-2">
             <div className="flex gap-1">
-                <p className="font-semibold">{comment.commenter.name}</p>
+                <Link to={`/users/${comment.commenter._id}`} className="font-semibold hover:text-stone-500">
+                    {comment.commenter.name}
+                </Link>
                 <p>({timestampArray[0]} {timestampArray[1].slice(0, -3)})</p>
                 <DelCommentBtn 
                     comment={comment}
