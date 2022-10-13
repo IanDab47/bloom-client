@@ -127,13 +127,13 @@ export default function Profile({ currentUser, handleLogout }) {
         </section>
       </div>
 
-      <div className='overflow-x-scroll'>
+      <div className='w-full'>
           <MyCourses 
             myCourses={myCourses}
           />
       </div>
 
-      <div className='overflow-x-scroll'>
+      <div className='w-full'>
         <PaidCourses 
           paidCourses={paidCourses}
         />
