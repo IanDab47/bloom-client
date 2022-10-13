@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CartList from "../partials/CartList";
 import CheckoutBtn from "../partials/CheckoutBtn";
+import btn from "../../bloomStyles"
 
 function Cart(props) {
     const navigate = useNavigate();

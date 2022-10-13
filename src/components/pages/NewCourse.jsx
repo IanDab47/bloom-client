@@ -98,11 +98,11 @@ export default function NewCourse(props){
                             value={form.description}
                             placeholder='Enter the Description of the course...'
                             onChange={e => setForm({ ...form, description: e.target.value })}
-                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5   " 
+                            className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full h-64 md:h-36 xl:h-24 p-2.5" 
                         />
                     </div>
 
-                    <button type="submit" className=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-full ">Submit</button>
+                    <button type="submit" className=" items-center py-2 px-3 text-sm font-medium font-bloom-sans text-center text-white rounded-lg bg-[#898e59] hover:bg-[#aab161] w-full">Submit</button>
                 </form>
             </div>
         </div>
