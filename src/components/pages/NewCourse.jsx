@@ -20,16 +20,18 @@ export default function NewCourse(props){
         if (!props.currentUser) {
             navigate(`/login`);
         }
+        else {
+            setForm({...form, createdBy: props.currentUser.id});
+        }
     }, []);
 
     const handleSubmit = async e => {
         try {
             e.preventDefault()
             // post form data to the backend API
-            setForm({...form, createdBy: props.currentUser.id});
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`, form)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses`, form);
             // navigate back to /courses to see the new course
-            navigate('/courses')
+            navigate(`/courses/${response.data._id}`);
         } catch(err) {
             console.warn(err)
             if (err.response) {
@@ -78,10 +80,10 @@ export default function NewCourse(props){
                     <div>
                         <label htmlFor='photoLink' className="block mb-2 text-sm font-bloom-sans text-bloom-grey">Picture</label>
                         <input 
-                            type='text'
+                            type="url"
                             id='photoLink'
                             value={form.photoLink}
-                            placeholder='Enter link to picture here'
+                            placeholder="https://image_url.com"
                             onChange={e => setForm({ ...form, photoLink: e.target.value })}
                             className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5  " 
                             required
@@ -97,7 +99,6 @@ export default function NewCourse(props){
                             placeholder='Enter the Description of the course...'
                             onChange={e => setForm({ ...form, description: e.target.value })}
                             className= "bg-white-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-blue-500 block w-full p-2.5   " 
-                            required
                         />
                     </div>
 
