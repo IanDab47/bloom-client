@@ -16,25 +16,25 @@ function CourseCard({course, myEmpty, paidEmpty}) {
 
     const myCallToAction = () => {
       return (
-        <div className="aspect-square flex flex-col justify-center items-center gap-8 w-[330px] bg-opacity-30 bg-stone-300 font-bloom-sans text-center rounded-lg shadow-lg">
+        <div className="aspect-square flex flex-col justify-center items-center gap-8 min-w-[330px] max-w-[330px] bg-opacity-30 bg-stone-300 font-bloom-sans text-center rounded-lg shadow-lg ml-5">
           <h3 className="text-4xl leading-snug px-6">Make Your First Course <span className="font-bold">Now!</span></h3>
-          <Link className={`${btn} text-3xl max-w-4/5`} to='/courses/new'>New Course</Link>
+          <Link className={`${btn} text-2xl max-w-2/3`} to='/courses/new'>New Course</Link>
         </div>
       )
     }
 
     const paidCallToAction = () => {
       return (
-        <div className="aspect-square flex flex-col justify-center items-center gap-8 w-[300px] bg-opacity-30 bg-stone-500 font-bloom-sans text-center rounded-lg shadow-lg">
+        <div className="aspect-square flex flex-col justify-center items-center gap-8 min-w-[330px] max-w-[330px] bg-opacity-30 bg-stone-500 font-bloom-sans text-center rounded-lg shadow-lg ml-5">
           <h3 className="text-4xl font-light text-stone-50 leading-snug px-6">Purchase Your First Course <span className="font-medium">Here!</span></h3>
-          <Link className={`${btn} text-3xl max-w-4/5`} to='/courses/new'>Browse Courses</Link>
+          <Link className={`${btn} text-2xl max-w-2/3`} to='/courses/new'>Browse Courses</Link>
         </div>
       )
     }
 
     const courseCard = () => {
       return (
-        <div className="aspect-square w-[330px] bg-white rounded-lg border border-stone-300 shadow-lg bg-bloom-sage">
+        <div className="aspect-square min-w-[330px] max-w-[330px] bg-white rounded-lg border border-stone-300 shadow-lg bg-bloom-sage ml-5">
             <Link to={`/courses/${course._id}`}>
                 <img className="rounded-t-lg" src={course.photoLink} alt="" />
             </Link>
