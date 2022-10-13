@@ -5,7 +5,7 @@ import CourseActionButtons from "../partials/CourseActionButtons";
 import CommentList from '../partials/CommentList'
 
 export default function Course(props){
-
+    const [creator, setCreator] = useState("");
     const [form, setForm] = useState({
         content: '',
         commenter: ''
@@ -31,6 +31,8 @@ export default function Course(props){
                 //axios to the back end to get course
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/courses/${courseId}`)
                 setCourse(response.data)
+                const userReponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${response.data.createdBy}`);
+                setCreator(userReponse.data.name);
             } catch (err) {
                 console.warn(err)
                 if (err.response) {
@@ -111,6 +113,7 @@ export default function Course(props){
 
                     <div>
                         <h2><strong>Title:</strong> {course.title}</h2>
+                        <p><strong>Creator:</strong> {creator}</p>
                         <img src={course.photoLink} alt={course.title} width="600"/>
                         <p><strong>Price:</strong> ${course.price}</p>
                         <p><strong>Description:</strong> {course.description}</p>
