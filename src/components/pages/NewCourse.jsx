@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -16,6 +16,12 @@ export default function NewCourse(props){
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if (!props.currentUser) {
+            navigate(`/login`);
+        }
+    }, []);
+
     const handleSubmit = async e => {
         try {
             e.preventDefault()
@@ -31,11 +37,6 @@ export default function NewCourse(props){
             }
         }
     }
-    console.log(props.currentUser)
-
-    if (!props.currentUser) {
-		navigate(`/login`);
-	}
 
     return(
 
