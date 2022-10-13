@@ -8,11 +8,17 @@ function CourseCard({course, myEmpty, paidEmpty}) {
 
     useEffect(() => {
         const getUser = async () => {
-            const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${course.createdBy}`)
-            setUsername(userResponse.data.name)
+            try {
+              if(!myEmpty && !paidEmpty) {
+                const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${course.createdBy}`)
+                setUsername(userResponse.data.name)
+              }
+            } catch(err) {
+              console.log(err)
+            }
         }
         getUser()
-    })
+    }, [])
 
     const myCallToAction = () => {
       return (
@@ -27,7 +33,7 @@ function CourseCard({course, myEmpty, paidEmpty}) {
       return (
         <div className="aspect-square flex flex-col justify-center items-center gap-8 min-w-[330px] max-w-[330px] bg-opacity-30 bg-stone-500 font-bloom-sans text-center rounded-lg shadow-lg ml-5">
           <h3 className="text-4xl font-light text-stone-50 leading-snug px-6">Purchase Your First Course <span className="font-medium">Here!</span></h3>
-          <Link className={`${btn} text-2xl max-w-2/3`} to='/courses/new'>Browse Courses</Link>
+          <Link className={`${btn} text-2xl max-w-2/3`} to='/courses'>Browse Courses</Link>
         </div>
       )
     }
@@ -73,4 +79,4 @@ function CourseCard({course, myEmpty, paidEmpty}) {
     )
 }
 
-export default CourseCard;
+export default CourseCard
